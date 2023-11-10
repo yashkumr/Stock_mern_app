@@ -7,13 +7,17 @@ import connectDb from "./config/connectDb.js";
 import userRoute from "./routes/userRoute.js"
 import transectionRoute from "./routes/transectionRoute.js";
 import path from "path";
-
+import { fileURLToPath } from 'url';
 // config dot env file
 dotenv.config();
 
 //database call
 connectDb();
 
+
+//esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 //middlewares
  app.use(morgan("dev"));
